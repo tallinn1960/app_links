@@ -22,8 +22,9 @@ public class SwiftAppLinksPlugin: NSObject, FlutterPlugin {
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
     switch call.method {
       case "getInitialAppLink":
-        result(initialLink)
+        latestLink = initialLink
         initialLink = ""
+        result(latestLink)
         break
       case "getLatestAppLink":
         result(latestLink)
